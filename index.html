@@ -133,10 +133,10 @@
         <div style="display: flex; align-items: center; justify-content: space-between; max-width: 900px; margin: 0 auto;">
             <h1 style="margin: 0 0.5rem 0 0; font-family: 'Georgia', serif; font-size: 2.5rem; letter-spacing: 2px; text-align: left;">Lifestyle Blog</h1>
             <nav>
-            <a ="showSection('home')" class="nav-button" id="btn-home">Home</a>
-            <a ="showSection('about')" class="nav-button" id="btn-about">About</a>
-            <a ="showSection('blog')" class="nav-button" id="btn-blog">Blog</a>
-            <a ="showSection('contact')" class="nav-button" id="btn-contact">Contact</a>
+            <a onclick="showSection('home')" class="nav-button" id="btn-home">Home</a>
+            <a onclick="showSection('about')" class="nav-button" id="btn-about">About</a>
+            <a onclick="showSection('blog')" class="nav-button" id="btn-blog">Blog</a>
+            <a onclick="showSection('contact')" class="nav-button" id="btn-contact">Contact</a>
             </nav>
         </div>
     </header>
@@ -182,7 +182,7 @@
         <option value="crafting">Crafting</option>
       </select>
       <br><br>
-      <button type="button" ="showQuizResult()">See My Style!</button>
+      <button type="button" onclick="showQuizResult()">See My Style!</button>
     </form>
     <div id="quizResult" style="font-weight: bold; color: #f59e0b;"></div>
 
@@ -194,9 +194,9 @@
           Which content would you like to see more of?
         </p>
         <div style="display: flex; gap: 0.7rem; margin-top: 0.5rem;">
-          <button ="vote('wellness')" style="background: linear-gradient(90deg, #34d399 60%, #6ee7b7 100%); color: #222; border: none; border-radius: 20px; padding: 0.6rem 1.2rem; font-size: 1rem; font-weight: bold; cursor: pointer; box-shadow: 0 1px 4px rgba(0,0,0,0.04); transition: background 0.2s;">🌱 Wellness</button>
-          <button ="vote('travel')" style="background: linear-gradient(90deg, #60a5fa 60%, #38bdf8 100%); color: #222; border: none; border-radius: 20px; padding: 0.6rem 1.2rem; font-size: 1rem; font-weight: bold; cursor: pointer; box-shadow: 0 1px 4px rgba(0,0,0,0.04); transition: background 0.2s;">✈️ Travel</button>
-          <button ="vote('decor')" style="background: linear-gradient(90deg, #fbbf24 60%, #f59e0b 100%); color: #222; border: none; border-radius: 20px; padding: 0.6rem 1.2rem; font-size: 1rem; font-weight: bold; cursor: pointer; box-shadow: 0 1px 4px rgba(0,0,0,0.04); transition: background 0.2s;">🏡 Home Décor</button>
+          <button onclick="vote('wellness')" style="background: linear-gradient(90deg, #34d399 60%, #6ee7b7 100%); color: #222; border: none; border-radius: 20px; padding: 0.6rem 1.2rem; font-size: 1rem; font-weight: bold; cursor: pointer; box-shadow: 0 1px 4px rgba(0,0,0,0.04); transition: background 0.2s;">🌱 Wellness</button>
+          <button onclick="vote('travel')" style="background: linear-gradient(90deg, #60a5fa 60%, #38bdf8 100%); color: #222; border: none; border-radius: 20px; padding: 0.6rem 1.2rem; font-size: 1rem; font-weight: bold; cursor: pointer; box-shadow: 0 1px 4px rgba(0,0,0,0.04); transition: background 0.2s;">✈️ Travel</button>
+          <button onclick="vote('decor')" style="background: linear-gradient(90deg, #fbbf24 60%, #f59e0b 100%); color: #222; border: none; border-radius: 20px; padding: 0.6rem 1.2rem; font-size: 1rem; font-weight: bold; cursor: pointer; box-shadow: 0 1px 4px rgba(0,0,0,0.04); transition: background 0.2s;">🏡 Home Décor</button>
         </div>
         <div id="pollResult" style="margin-top: 0.7rem; color: #222; font-size: 1rem; font-weight: 500;"></div>
       </div>
