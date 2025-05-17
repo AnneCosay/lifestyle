@@ -2,7 +2,69 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Lifestyle Blog</title>
+    <title>A Beautiful Mess</title>
+    <style>
+      /* Enhanced Style Quiz UI */
+      #styleQuiz {
+        background: #f9fafb;
+        border: 1px solid #e5e7eb;
+        border-radius: 8px;
+        padding: 1.5rem 2rem;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.03);
+        max-width: 400px;
+        margin: 0 auto 1.5rem auto;
+        display: flex;
+        flex-direction: column;
+        gap: 1.2rem;
+      }
+      #styleQuiz label {
+        font-weight: 500;
+        color: #374151;
+        margin-bottom: 0.3rem;
+        display: block;
+      }
+      #styleQuiz select {
+        width: 100%;
+        padding: 0.5rem;
+        border-radius: 5px;
+        border: 1px solid #d1d5db;
+        background: #fff;
+        font-size: 1rem;
+        margin-top: 0.2rem;
+        margin-bottom: 0.5rem;
+        transition: border 0.2s;
+      }
+      #styleQuiz select:focus {
+        border-color: #f59e0b;
+        outline: none;
+      }
+      #styleQuiz button {
+        background: linear-gradient(90deg, #f59e0b 60%, #fbbf24 100%);
+        color: #222;
+        font-weight: bold;
+        border: none;
+        border-radius: 5px;
+        padding: 0.7rem 1.2rem;
+        font-size: 1.1rem;
+        cursor: pointer;
+        box-shadow: 0 1px 4px rgba(0,0,0,0.04);
+        transition: background 0.2s, color 0.2s;
+      }
+      #styleQuiz button:hover, #styleQuiz button:focus {
+        background: linear-gradient(90deg, #fbbf24 60%, #f59e0b 100%);
+        color: #111;
+      }
+      #quizResult {
+        text-align: center;
+        font-size: 1.1rem;
+        margin-top: 1rem;
+        color: #f59e0b;
+        background: #fff7ed;
+        border-radius: 6px;
+        padding: 0.7rem 1rem;
+        box-shadow: 0 1px 4px rgba(0,0,0,0.03);
+      }
+    </style>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <style>
         body {
@@ -71,12 +133,443 @@
         <div style="display: flex; align-items: center; justify-content: space-between; max-width: 900px; margin: 0 auto;">
             <h1 style="margin: 0 0.5rem 0 0; font-family: 'Georgia', serif; font-size: 2.5rem; letter-spacing: 2px; text-align: left;">Lifestyle Blog</h1>
             <nav>
-                <a href="#" class="active">Home</a>
-                <a href="#">About</a>
-                <a href="#">Blog</a>
-                <a href="#">Contact</a>
+            <a ="showSection('home')" class="nav-button" id="btn-home">Home</a>
+            <a ="showSection('about')" class="nav-button" id="btn-about">About</a>
+            <a ="showSection('blog')" class="nav-button" id="btn-blog">Blog</a>
+            <a ="showSection('contact')" class="nav-button" id="btn-contact">Contact</a>
             </nav>
         </div>
     </header>
 </body>
+<body>
+
+  <main>
+    <section id="home" class="active">
+      <h2>Welcome to Lifestyle Blog</h2>
+      <p>Discover tips and inspiration for living your best life. From wellness and travel to home décor and personal growth, our blog brings you fresh ideas to enhance your everyday lifestyle.</p>
+      <h3>Home + DIY<h3>
+    <ul style="list-style: none; padding: 0; margin: 2rem 0 2rem 0;">
+      <li style="background: #f9fafb; border-left: 5px solid #f59e0b; margin-bottom: 1rem; padding: 1rem 1.5rem; border-radius: 6px;">
+        <strong>1. Easy DIY Wall Art for Beginners:</strong>
+        <br>
+        Add personality to your space with hand-painted canvases or printables.
+      </li>
+      <li style="background: #f9fafb; border-left: 5px solid #84cc16; margin-bottom: 1rem; padding: 1rem 1.5rem; border-radius: 6px;">
+        <strong>2. 10 Cozy Home Décor Hacks on a Budget:</strong>
+        <br>
+        String lights, indoor plants, and thrifted finds can transform your space.
+      </li>
+      <li style="background: #f9fafb; border-left: 5px solid #0ea5e9; margin-bottom: 1rem; padding: 1rem 1.5rem; border-radius: 6px;">
+        <strong>3. Weekend Projects: Revamp an Old Bookshelf:</strong>
+        <br>
+        Paint, stencil, or add wallpaper for a fun and fresh look.
+      </li>
+    </ul>
+
+    <h3>What's Your Style?</h3>
+    <form id="styleQuiz" style="margin-bottom: 1.5rem;">
+      <label for="roomColor">Favorite room color:</label>
+      <select id="roomColor" name="roomColor">
+        <option value="neutral">Neutral</option>
+        <option value="bold">Bold</option>
+        <option value="pastel">Pastel</option>
+      </select>
+      <br><br>
+      <label for="activity">Pick a weekend activity:</label>
+      <select id="activity" name="activity">
+        <option value="gardening">Gardening</option>
+        <option value="reading">Reading</option>
+        <option value="crafting">Crafting</option>
+      </select>
+      <br><br>
+      <button type="button" ="showQuizResult()">See My Style!</button>
+    </form>
+    <div id="quizResult" style="font-weight: bold; color: #f59e0b;"></div>
+
+    <h3>Quick Poll</h3>
+    <div style="background: #f9fafb; border-radius: 8px; padding: 1rem 1.5rem; margin-bottom: 1rem; box-shadow: 0 1px 4px rgba(0,0,0,0.04); display: flex; align-items: center; gap: 1rem;">
+      <img src="https://img.icons8.com/color/48/000000/idea.png" alt="Poll Icon" style="width: 36px; height: 36px;">
+      <div>
+        <p style="margin: 0; font-size: 1.15rem; color: #f59e0b; font-weight: 500;">
+          Which content would you like to see more of?
+        </p>
+        <div style="display: flex; gap: 0.7rem; margin-top: 0.5rem;">
+          <button ="vote('wellness')" style="background: linear-gradient(90deg, #34d399 60%, #6ee7b7 100%); color: #222; border: none; border-radius: 20px; padding: 0.6rem 1.2rem; font-size: 1rem; font-weight: bold; cursor: pointer; box-shadow: 0 1px 4px rgba(0,0,0,0.04); transition: background 0.2s;">🌱 Wellness</button>
+          <button ="vote('travel')" style="background: linear-gradient(90deg, #60a5fa 60%, #38bdf8 100%); color: #222; border: none; border-radius: 20px; padding: 0.6rem 1.2rem; font-size: 1rem; font-weight: bold; cursor: pointer; box-shadow: 0 1px 4px rgba(0,0,0,0.04); transition: background 0.2s;">✈️ Travel</button>
+          <button ="vote('decor')" style="background: linear-gradient(90deg, #fbbf24 60%, #f59e0b 100%); color: #222; border: none; border-radius: 20px; padding: 0.6rem 1.2rem; font-size: 1rem; font-weight: bold; cursor: pointer; box-shadow: 0 1px 4px rgba(0,0,0,0.04); transition: background 0.2s;">🏡 Home Décor</button>
+        </div>
+        <div id="pollResult" style="margin-top: 0.7rem; color: #222; font-size: 1rem; font-weight: 500;"></div>
+      </div>
+    </div>
+
+    <script>
+      function showQuizResult() {
+        const color = document.getElementById('roomColor').value;
+        const activity = document.getElementById('activity').value;
+        let result = "You're a ";
+        if (color === 'neutral' && activity === 'reading') {
+        result += "Cozy Minimalist!";
+        } else if (color === 'bold' && activity === 'crafting') {
+        result += "Creative Maximalist!";
+        } else if (color === 'pastel' && activity === 'gardening') {
+        result += "Nature-Inspired Dreamer!";
+        } else {
+        result += "Unique Trendsetter!";
+        }
+        document.getElementById('quizResult').textContent = result;
+      }
+
+      const pollVotes = { wellness: 0, travel: 0, decor: 0 };
+      function vote(topic) {
+        pollVotes[topic]++;
+        document.getElementById('pollResult').textContent =
+        `Wellness: ${pollVotes.wellness} | Travel: ${pollVotes.travel} | Home Décor: ${pollVotes.decor}`;
+      }
+    </script>
+    </section>
+
+    <section id="about" class="about-section">
+  <div class="about-container">
+    <h2 class="about-title">✨ About Us</h2>
+    <p class="about-intro">
+      At <strong>Lifestyle Blog</strong>, we're passionate about inspiring others to live well—inside and out.
+      Our content is grounded in the belief that a meaningful life is built through small, intentional choices every day.
+    </p>
+    <div class="about-cards">
+      <div class="about-card">
+        <h3>Simplicity</h3>
+        <p>We believe in slowing down and appreciating life’s simple pleasures—from morning rituals to mindful moments.</p>
+      </div>
+      <div class="about-card">
+        <h3>Wellness</h3>
+        <p>Self-care isn't selfish. We share realistic tips for physical, mental, and emotional well-being.</p>
+      </div>
+      <div class="about-card">
+        <h3>Creativity</h3>
+        <p>Whether it’s cooking, journaling, or decorating, we encourage creative expression in everyday life.</p>
+      </div>
+      <div class="about-card">
+        <h3>Community</h3>
+        <p>Our content is for everyone. We build a welcoming space where readers feel seen, inspired, and empowered.</p>
+      </div>
+    </div>
+    <p class="about-footer">
+      Join us as we explore the art of living intentionally—with joy, grace, and creativity.
+    </p>
+  </div>
+</section>
+
+<style>
+  .about-section {
+    background: linear-gradient(135deg, #fdfcfb, #e2d1c3);
+    padding: 60px 20px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  }
+
+  .about-container {
+    max-width: 1000px;
+    margin: 0 auto;
+    background: #ffffffee;
+    padding: 40px;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+  }
+
+  .about-title {
+    text-align: center;
+    font-size: 2.5em;
+    color: #3b3b3b;
+    margin-bottom: 30px;
+  }
+
+  .about-intro, .about-footer {
+    text-align: center;
+    font-size: 1.1em;
+    color: #555;
+    margin-bottom: 30px;
+  }
+
+  .about-cards {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+  }
+
+  .about-card {
+    background-color: #fdfdfd;
+    border-radius: 16px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.06);
+    padding: 20px;
+    flex: 1 1 220px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+
+  .about-card h3 {
+    margin-top: 0;
+    color: #1e3a8a;
+  }
+
+  .about-card p {
+    color: #444;
+    font-size: 0.95em;
+  }
+
+  .about-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+  }
+
+  @media (max-width: 768px) {
+    .about-card {
+      flex: 1 1 100%;
+    }
+  }
+</style>
+
+
+    <section id="blog" style="padding: 40px; background-color: #f9f9f9;">
+  <h2 style="font-size: 2em; margin-bottom: 20px;">📝 Latest Blog Posts</h2>
+  
+  <div style="display: flex; flex-wrap: wrap; gap: 20px;">
+    
+    <div class="card">
+      <h3>5 Morning Rituals for a Productive Day</h3>
+      <p>Start your day with intention! Explore our favorite morning routines that boost energy and set a positive tone for the rest of your day.</p>
+    </div>
+
+    <div class="card">
+      <h3>Travel Essentials: Packing Light for Adventure</h3>
+      <p>Planning your next getaway? Check out our tips for packing smart and traveling with ease, so you can focus on the adventure ahead.</p>
+    </div>
+
+    <div class="card">
+      <h3>Daily Affirmations to Boost Confidence</h3>
+      <p>Start each morning with simple yet powerful affirmations that rewire your mindset for confidence and calm.</p>
+    </div>
+
+    <div class="card">
+      <h3>Natural Skincare Routine for Glowing Skin</h3>
+      <p>Gentle, effective skincare ideas using affordable products that work with your natural glow—not against it.</p>
+    </div>
+
+    <div class="card">
+      <h3>3-Ingredient Waffle Recipe (Quick & Crispy!)</h3>
+      <p>The easiest weekend brunch recipe you’ll ever make—perfectly crispy and done in under 10 minutes.</p>
+    </div>
+
+  </div>
+</section>
+
+<style>
+  .card {
+    flex: 1 1 30%;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
+    transition: transform 0.3s;
+  }
+  .card:hover {
+    transform: translateY(-6px);
+  }
+  #blog h2 {
+    text-align: center;
+    font-weight: bold;
+  }
+  #blog h3 {
+    margin-top: 0;
+    color: #333;
+  }
+</style>
+<script>
+    // Enhance blog cards with interactive, creative UI
+    document.addEventListener("DOMContentLoaded", () => {
+        const cards = document.querySelectorAll("#blog .card");
+        const detailsContent = [
+            "Discover step-by-step rituals, printable checklists, and a free morning playlist.",
+            "Download our packing list PDF and see our favorite travel gadgets in action.",
+            "Try our daily affirmation generator and printable affirmation cards.",
+            "Watch our quick video on natural skincare routines and get a free recipe card.",
+            "See a video demo and download the printable recipe for your next brunch!"
+        ];
+
+        cards.forEach((card, idx) => {
+            card.style.cursor = "pointer";
+            // Add a creative details panel
+            const details = document.createElement("div");
+            details.innerHTML = `
+                <div style="
+                    background: linear-gradient(90deg, #fef9c3 60%, #fef3c7 100%);
+                    border-radius: 8px;
+                    margin-top: 14px;
+                    padding: 14px 18px;
+                    color: #b45309;
+                    font-size: 1.07em;
+                    box-shadow: 0 2px 8px rgba(245, 158, 11, 0.08);
+                    display: flex;
+                    align-items: center;
+                    gap: 12px;
+                    animation: fadeIn 0.4s;
+                ">
+                    <img src="https://img.icons8.com/fluency/32/idea.png" alt="Lightbulb" style="width:28px;height:28px;">
+                    <span>${detailsContent[idx]}</span>
+                </div>
+            `;
+            details.style.display = "none";
+            card.appendChild(details);
+
+            // Add a subtle pulse effect on hover
+            card.addEventListener("mouseenter", () => {
+                card.style.boxShadow = "0 8px 32px rgba(245, 158, 11, 0.18)";
+            });
+            card.addEventListener("mouseleave", () => {
+                card.style.boxShadow = "";
+            });
+
+            // Toggle details on click
+            card.addEventListener("click", () => {
+                details.style.display = details.style.display === "none" ? "block" : "none";
+            });
+
+            // Add a floating "Read More" button
+            const readMoreBtn = document.createElement("button");
+            readMoreBtn.textContent = "Read More";
+            readMoreBtn.style = `
+                position: absolute;
+                bottom: 18px;
+                right: 18px;
+                background: linear-gradient(90deg, #fbbf24 60%, #f59e0b 100%);
+                color: #222;
+                border: none;
+                border-radius: 20px;
+                padding: 0.5rem 1.1rem;
+                font-size: 1em;
+                font-weight: bold;
+                cursor: pointer;
+                box-shadow: 0 1px 4px rgba(0,0,0,0.07);
+                opacity: 0.92;
+                transition: background 0.2s, color 0.2s, opacity 0.2s;
+                z-index: 2;
+            `;
+            readMoreBtn.addEventListener("mouseenter", () => readMoreBtn.style.opacity = "1");
+            readMoreBtn.addEventListener("mouseleave", () => readMoreBtn.style.opacity = "0.92");
+            readMoreBtn.addEventListener("click", (e) => {
+                e.stopPropagation();
+                details.style.display = details.style.display === "none" ? "block" : "none";
+            });
+            card.style.position = "relative";
+            card.appendChild(readMoreBtn);
+        });
+    });
+</script>
+<style>
+    #blog .card {
+        position: relative;
+        overflow: hidden;
+        border: 1px solid #f3f4f6;
+        box-shadow: 0 4px 16px rgba(245, 158, 11, 0.07);
+        transition: box-shadow 0.3s, transform 0.2s;
+        min-width: 220px;
+        margin-bottom: 10px;
+    }
+    #blog .card:hover {
+        box-shadow: 0 8px 24px rgba(245, 158, 11, 0.15);
+        background: linear-gradient(90deg, #fffbe8 60%, #fff7ed 100%);
+    }
+    #blog .card::after {
+        content: "➔";
+        position: absolute;
+        right: 18px;
+        top: 22px;
+        font-size: 1.2em;
+        color: #f59e0b;
+        opacity: 0.7;
+        transition: right 0.2s;
+    }
+    #blog .card:hover::after {
+        right: 10px;
+        opacity: 1;
+    }
+</style>
+
+    <section id="contact">
+      <h2>Contact Us</h2>
+      <p>Email: hello@lifestyleblog.com</p>
+      <p>Instagram: @lifestyleblog</p>
+      <p>We'd love to hear from you!</p>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 Lifestyle Blog. All rights reserved.</p>
+  </footer>
+
+  <script>
+    function showSection(id) {
+      const sections = document.querySelectorAll('main section');
+      sections.forEach(section => section.style.display = 'none');
+
+      document.getElementById(id).style.display = 'block';
+
+      // Optional: manage active button styles
+      const buttons = document.querySelectorAll('.nav-button');
+      buttons.forEach(btn => btn.classList.remove('active'));
+      document.getElementById('btn-' + id).classList.add('active');
+    }
+
+    // Set default view
+    document.addEventListener("DOMContentLoaded", () => {
+      showSection('home');
+    });
+  </script>
+
+  <style>
+    main section {
+      display: none;
+      padding: 20px;
+      animation: fadeIn 0.3s ease-in-out;
+    }
+
+    main section.active {
+      display: block;
+    }
+
+    nav {
+      background-color: #111;
+      padding: 10px;
+      text-align: center;
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      padding: 10px 20px;
+      margin: 0 5px;
+      display: inline-block;
+      border-radius: 5px;
+      background-color: #333;
+    }
+
+    nav a.active,
+    nav a:hover {
+      background-color: #f59e0b;
+      color: #000;
+    }
+
+    footer {
+      background-color: #111;
+      color: white;
+      text-align: center;
+      padding: 10px;
+      margin-top: 40px;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+  </style>
+</body>
+
 </html>
