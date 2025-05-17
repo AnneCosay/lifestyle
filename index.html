@@ -493,12 +493,112 @@
     }
 </style>
 
-    <section id="contact">
-      <h2>Contact Us</h2>
-      <p>Email: hello@lifestyleblog.com</p>
-      <p>Instagram: @lifestyleblog</p>
-      <p>We'd love to hear from you!</p>
-    </section>
+    <section id="contact" class="contact-section">
+  <div class="contact-container">
+    <h2 class="contact-title">📬 Contact Us</h2>
+    <p class="contact-intro">We’d love to hear from you — whether you have questions, ideas, or just want to say hi!</p>
+
+    <div class="contact-info">
+      <div class="contact-card">
+        <img src="https://cdn-icons-png.flaticon.com/512/732/732200.png" alt="Email Icon" class="icon">
+        <h3>Email Us</h3>
+        <p><a href="mailto:hello@lifestyleblog.com">hello@lifestyleblog.com</a></p>
+      </div>
+
+      <div class="contact-card">
+        <img src="https://cdn-icons-png.flaticon.com/512/174/174855.png" alt="Instagram Icon" class="icon">
+        <h3>Instagram</h3>
+        <p><a href="https://instagram.com/lifestyleblog" target="_blank">@lifestyleblog</a></p>
+      </div>
+
+      <div class="contact-card">
+        <img src="https://cdn-icons-png.flaticon.com/512/190/190411.png" alt="Message Icon" class="icon">
+        <h3>Let’s Connect</h3>
+        <p>Share your feedback, stories, or collaborations — our inbox is always open!</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .contact-section {
+    background-color: #fefcfb;
+    padding: 60px 20px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  }
+
+  .contact-container {
+    max-width: 1000px;
+    margin: auto;
+    text-align: center;
+  }
+
+  .contact-title {
+    font-size: 2.5em;
+    margin-bottom: 10px;
+    color: #1e3a8a;
+  }
+
+  .contact-intro {
+    font-size: 1.1em;
+    color: #555;
+    margin-bottom: 40px;
+  }
+
+  .contact-info {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 30px;
+  }
+
+  .contact-card {
+    background-color: #ffffff;
+    border-radius: 16px;
+    padding: 30px 20px;
+    width: 280px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.05);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+
+  .contact-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 24px rgba(0,0,0,0.08);
+  }
+
+  .contact-card h3 {
+    color: #1e3a8a;
+    margin: 15px 0 10px;
+  }
+
+  .contact-card p {
+    font-size: 0.95em;
+    color: #444;
+  }
+
+  .contact-card a {
+    color: #1e3a8a;
+    text-decoration: none;
+  }
+
+  .contact-card a:hover {
+    text-decoration: underline;
+  }
+
+  .icon {
+    width: 50px;
+    height: 50px;
+    margin-bottom: 10px;
+  }
+
+  @media (max-width: 768px) {
+    .contact-info {
+      flex-direction: column;
+      align-items: center;
+    }
+  }
+</style>
+
   </main>
 
   <footer>
